@@ -2,11 +2,11 @@
 
 ## Types of **variables**
 
-> **String**: "Hello", "Say my name", "Some text".
-> **int**: 123, -123, 657, 2345, 10, 0.
-> **float**: 19.34, 5.678, 3.14, -9.45.
-> **char**: "a", "B", "y".
-> **boolean**: true or false
+- **String**: "Hello", "Say my name", "Some text".
+- **int**: 123, -123, 657, 2345, 10, 0.
+- **float**: 19.34, 5.678, 3.14, -9.45.
+- **char**: "a", "B", "y".
+- **boolean**: true or false
 
 ## Declaring variables
 > you must ***specify*** the type and assign it a value
