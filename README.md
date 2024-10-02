@@ -25,7 +25,7 @@ public class Learn {
 			public static void main(String[] args) {
 
 				String car = "Lamborghini";
-				final int doors = 2; // funciona como uma CONST
+				final int doors = 2; // works as a constant
 				
 				System.out.println(car + " have " + doors + " doors");
 			}
