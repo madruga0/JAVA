@@ -1,64 +1,47 @@
-// public class Learn {
-// 	public static void main(String[] args) {
-
-// 					System.out.println("Hello World");
-// 		// Em JS -> console.log("Hello world")
-// 	}
-// }
-
-public class Learn {
+public class NA_course {
 	public static void main(String[] args) {
 
-		// VARIABLES
-		String surname = "Madruga";
-		int myAge = 22;
-		myAge = 26;
-		System.out.println("Pedro " + surname + " have " + myAge + " years.");
+		// System.out.println("Hello world");
+		// int y = 32;
+		// System.out.println(y);
+		// double x = 10.35784;
+		// System.out.printf("%.2f%n", x);
+		// System.out.printf("%.3f%n", x);
 
-		String car = "Lamborghini";
-		String model = " Aventador SVJ";
-		String carModel = car  +  model;
+		// String nome = "Pedro";
+		// int idade = 31;
+		// double renda = 4000.0;
+		// System.out.printf("%s tem %d anos e ganha R$ %.2f reais%n", nome, idade, renda);
 
-		System.out.println("The BEST car is " + carModel);
+// 		## para concatenar varios elementos em um mesmo comando de escrita
 
-		int x = 10;
-		int y = 12;
+// - **%f** -> ponto flutuante
+// - **%d** -> inteiro
+// - **%s** -> texto
+// - **%n** -> quebra de linha
+// ```java
 
-		System.out.println(x + y);
+// String nome = "Pedro";
+// int idade = 31;
+// double renda = 4000.0;
+// System.out.printf("%s tem %d anos e ganha R$ %.2f reais%n", nome, idade, renda);
 
-		// DECLARE MANY VARIABLES
-		int p = 5, h = 10, z = 26;
-		System.out.println(p + h + z);
+		String product1 = "Computer";
+		String product2 = "Office desk";
 
-		int a, b, c;
-		a = b = c = 100;
-		System.out.println(a + b + c);
+		int age = 30;
+		int code = 5290;
+		char gender = 'M';
 
-		// REAL EXAMPLE
-		String studentName = "Pedro Madruga";
-		int studentId = 10;
-		int studentAge = 22;
-		float studentFee = 75.30f;
-		char studentGrade = 'A';
+		double price1 = 2100.0;
+		double price2 = 650.50;
+		double measure = 53.234567;
 
-		System.out.println("Student name: " + studentName);
-		System.out.println("Student id: " + studentId);
-		System.out.println("Student age: " + studentAge);
-		System.out.println("Student fee: " + studentFee);
-		System.out.println("Student grade: " + studentGrade);
-
-		// CALCULE RECTANGLE AREA
-		int length = 10;
-		float width = 28.3f;
-		float area;
-
-		area = length * width;
-
-		System.out.println("Lenght: " + length);
-		System.out.println("Width: " + width);
-		System.out.println("Area: " + area + "m2");
+		System.out.printf("%s, which price is $ %.2f%n", product1, price1);
+		System.out.printf("%s, which price is $ %.2f%n", product2, price2);
+		System.out.printf("Record: %d years old, code %d and gender: %s%n", age, code, gender);
+		System.out.printf("Measue with eight decimal places: %.8f%n", measure);
+		System.out.printf("Rouded(three decimal places): %.3f%n", measure);
+		System.out.printf("US decimal point: %.3f%n", measure);
 	}
 }
-
-
-		
