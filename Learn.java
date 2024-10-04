@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class NA_course {
 	public static void main(String[] args) {
 
@@ -43,5 +45,7 @@ public class NA_course {
 		System.out.printf("Measue with eight decimal places: %.8f%n", measure);
 		System.out.printf("Rouded(three decimal places): %.3f%n", measure);
 		System.out.printf("US decimal point: %.3f%n", measure);
+		Locale.setDefault(new Locale("pt", "BR"));
+		System.out.printf("BR decimal point: %.3f%n", measure);
 	}
 }
