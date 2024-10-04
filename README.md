@@ -76,3 +76,63 @@ public class Learn {
 | char           | 2 bytes        | 
 | int            | 4 bytes        | 
 
+
+## Declaracao de variaveis
+```java
+<tipo> <nome> = <valor inicial>
+
+int idade = 25;
+double altura = 1.68;
+char sexo = 'F';
+
+
+
+System.out.printf("%.2f%n", x);
+// para limitar a duas casas decimais (%.qttdf%n)
+```
+
+## para concatenar varios elementos em um mesmo comando de escrita
+
+- **%f** -> ponto flutuante
+- **%d** -> inteiro
+- **%s** -> texto
+- **%n** -> quebra de linha
+```java
+
+String nome = "Pedro";
+int idade = 31;
+double renda = 4000.0;
+System.out.printf("%s tem %d anos e ganha R$ %.2f reais%n", nome, idade, renda);
+
+```
+
+## CASTING -> conversao explicita dos valores
+ 
+ - **Sempre** indique o **tipo de numero**, se a **expressao** **for de ponto flutuante**(nao inteira)
+ - abaixo, **indica uma boa pratica**, nao e obrigatorio utilizar, mas e bom (pode dar problema em alguns casos)
+
+ - Para **DOUBLE** use: **.0**
+ ```java
+double h, b, B, area;
+
+		 b = 6.0;
+		 B = 8.0;
+		 h = 5.0;
+		 area = (b + B) / 2.0 * h;
+
+		System.out.println("Area do trapezio: " + area + "m2");
+ ```
+ 
+ - Para **FLOAT** use: **f**;
+ ```java
+float h, b, B, area;
+
+		 b = 6f;
+		 B = 8f;
+		 h = 5f;
+		 area = (b + B) / 2f * h;
+
+		System.out.println("Area do trapezio: " + area + "m2");
+ ```
+
+
