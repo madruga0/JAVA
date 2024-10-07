@@ -258,7 +258,8 @@ public class NA_course {
 
 		// OBS: Quando voce usa um comando de leitura diferente do nextLine() e da alguma quebra de linha, essa quebra de linha fica "pendente" na entrada padrao.
 		
-		// Se voce entao fizer um nextLIne(), aquela quebra de linha pendente sera absorvida pelo nextLine() 
+		// Se voce entao fizer um nextLIne(), aquela quebra de linha pendente sera absorvida pelo nextLine()
+		// SOLUCAO: Faca um nextLine() extra antes de fazer o nextLine() de seu interesse
 	}
 }
 ```
