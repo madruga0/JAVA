@@ -140,8 +140,8 @@ float h, b, B, area;
 - Para fazer entrada de dados, vamos criar um objeto do tipo "Scanner" da seguinte forma:
 ```java
 
-// Variavel do tipo Scanner
-Scanner sc = new Scanner(System.in);
+	// Variavel do tipo Scanner
+	Scanner sc = new Scanner(System.in);
 
 ```
 - para isso, preciso colocar no topo da minha clasee o seguinte IMPORT
@@ -179,34 +179,34 @@ sc.close()
 ```
 3. ler um **numero com ponto flutuante**
 ```java
-Scanner numberDouble = new Scanner(System.in);
+	Scanner numberDouble = new Scanner(System.in);
 
-double z;
-z = numberDouble.nextDouble();
-System.out.println("Numero que foi digitado: " + z);
+	double z;
+	z = numberDouble.nextDouble();
+	System.out.println("Numero que foi digitado: " + z);
 ```
 4. ler um **caractere**
 ```java
-Scanner name = new Scanner(System.in);
+	Scanner name = new Scanner(System.in);
 
-char name;
-name = name.next().charAt(0);
-System.out.println("Caractere que foi digitado: " + name);
+	char name;
+	name = name.next().charAt(0);
+	System.out.println("Caractere que foi digitado: " + name);
 ```
 5. ler **varios dados na mesma linha**
 ```java
-String x;
-int y;
-double z;
+	String x;
+	int y;
+	double z;
 		
-x = sc.next();
-y = sc.nextInt();
-z = sc.nextDouble();
+	x = sc.next();
+	y = sc.nextInt();
+	z = sc.nextDouble();
 		
-System.out.println("Dados digitados:");
-System.out.println(x);
-System.out.println(y);
-System.out.println(z);
+	System.out.println("Dados digitados:");
+	System.out.println(x);
+	System.out.println(y);
+	System.out.println(z);
 ```
 
 
