@@ -273,8 +273,13 @@ public class NA_course {
 3. Como ler ate a quebra de linha
    - nextLine()
    - como limpar o buffer de leitura
-   
 
+# Functions em JAVA
 
+| Exemplo           | Significado                         |
+| --------------    | --------------                      |
+|A = Math.sqrt(x);  | A recebe raiz quadrada de X         |
+|A = Math.pow(x,y); | A recbe o resultado de X elevado a Y|
+|A = Math.abs(x);   | A recebe o valor absoluto de X      |
 
 
