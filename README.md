@@ -265,14 +265,14 @@ public class NA_course {
 ```
 # RESUMO
 1. Scanner
-   1.1. next()
-   1.2. nextInt()
-   1.3. nextDouble()
-   1.4. next().charAt(0)
+   - next()
+   - nextInt()
+   - nextDouble()
+   - next().charAt(0)
 2. Locale
 3. Como ler ate a quebra de linha
-   3.1. nextLine()
-   3.2. como limpar o buffer de leitura
+   - nextLine()
+   - como limpar o buffer de leitura
    
 
 
