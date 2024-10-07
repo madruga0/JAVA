@@ -208,5 +208,59 @@ sc.close()
 	System.out.println(y);
 	System.out.println(z);
 ```
+## Entrada de dados PT.2
+
+# Para ler um texto ATE A QUEBRA DE LINHA
+```java
+import java.util.Scanner;
+
+public class NA_course {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		String s1, s2, s3;
+
+		s1 = sc.nextLine();
+		s2 = sc.nextLine();
+		s3 = sc.nextLine();
+
+		System.out.println("Dados digitados:");
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+
+	}
+}
+```
+# ATENCAO: quebra de linha pendente
+```java
+import java.util.Scanner;
+
+public class NA_course {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int x;
+		String s1, s2, s3;
+
+		x = sc.nextInt();
+		s1 = sc.nextLine();
+		s2 = sc.nextLine();
+		s3 = sc.nextLine();
+
+		System.out.println("Dados digitados:");
+		System.out.println(x);
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+
+		// OBS: Quando voce usa um comando de leitura diferente do nextLine() e da alguma quebra de linha, essa quebra de linha fica "pendente" na entrada padrao.
+		
+		// Se voce entao fizer um nextLIne(), aquela quebra de linha pendente sera absorvida pelo nextLine() 
+	}
+}
+```
 
 
