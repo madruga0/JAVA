@@ -208,9 +208,9 @@ sc.close()
 	System.out.println(y);
 	System.out.println(z);
 ```
-## Entrada de dados PT.2
+# Entrada de dados PT.2
 
-# Para ler um texto ATE A QUEBRA DE LINHA
+## Para ler um texto ATE A QUEBRA DE LINHA
 ```java
 import java.util.Scanner;
 
@@ -233,7 +233,7 @@ public class NA_course {
 	}
 }
 ```
-# ATENCAO: quebra de linha pendente
+## ATENCAO: quebra de linha pendente
 ```java
 import java.util.Scanner;
 
