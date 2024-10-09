@@ -385,11 +385,6 @@ Scanner sc = new Scanner(System.in);
 ```
 
 ```java
-import java.util.Scanner;
-
-public class DiaSemanaIfElse {
-
-    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int x = sc.nextInt();
@@ -416,9 +411,18 @@ public class DiaSemanaIfElse {
         System.out.print("Dia da semana: " + dia);
 
         sc.close();
-    }
-}
+```
 
+# Expressao condicional ternaria
+> Estrutura opcional ao if-else **quando se deseja decidir um VALOR com base em uma condition**
+
+## Sintaxe
+( condition ) ? valor_se_verdadeiro : valor_se_falso
+
+### Exemplos
+```java
+( 2 > 4 ) ? "Sim" : "Nao" -> nao
+( 10 != 3 ) ? "Pedro" : "Madruga" -> Madruga
 ```
 
 
