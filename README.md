@@ -317,4 +317,29 @@ public class NA_course {
 - **sqrt** : raiz quadrada.
 - **pow** : potenciacao.
 - **abs** : valor absoluto.
+  
+
+# Operadores de atribuicao cumulativa
+- a += b; | a = a + b;
+- a -= b; | a = a - b;
+- a *= b; | a = a * b;
+- a /= b; | a = a / b;
+- a %= b; | a = a % b;
+
+```java
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Total de minutos gastos: ");
+		int minutos = sc.nextInt();
+		double conta = 50.0;
+
+		if(minutos > 100) {
+			conta += (minutos - 100) * 2.0;
+		}
+
+		System.out.printf("Valor da conta = R$ %.2f%n", conta);
+
+		sc.close();
+
+```
 
