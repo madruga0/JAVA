@@ -422,7 +422,7 @@ Scanner sc = new Scanner(System.in);
 ### Exemplos
 ```java
 ( 2 > 4 ) ? "Sim" : "Nao" -> nao
-( 10 != 3 ) ? "Pedro" : "Madruga" -> Madruga
+( 10 != 3 ) ? "Pedro" : "Madruga" -> Pedro
 
 
 // EX 2
