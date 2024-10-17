@@ -480,4 +480,48 @@ String original = "abcde FGHIJ ABC abc DEFG";
 		System.out.println(vect[4]);
 ```
 
+# FUNCOES
+- **Functions** em **classe** recebem o nome de "**metodos**"
+```java
+public class NAlearn {
+	public static void main(String[] args) {
+	
+	Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter three numbers: ");
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int c = sc.nextInt();
+
+		int higher = max(a,b,c);
+
+		showResult(higher);
+
+
+
+		sc.close();
+	}
+
+	public static int max(int x, int y, int z) {
+		int aux; // local variable
+		if(x > y && x > z) {
+			aux = x;
+		} else if(y > z) {
+			aux = y;
+		} else {
+			aux = z;
+		}
+		return aux;
+	}
+
+	public static void showResult(int value) {
+		System.out.println("Higher: " + value);
+		// lembrando: os parametros nao precisam ter o mesmo nome
+	}
+
+}
+```
+- O nome do **parametro** **nao precisa ser igual** ao **nome da variavel do programa principal** 
+- Quando eu chamar a function, os valores dos parametros vao casar e se tornarao um so 
+
 
