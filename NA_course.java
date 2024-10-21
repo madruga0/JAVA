@@ -34,6 +34,7 @@ public class NA_course {
 		int age = 30;
 		int code = 5290;
 		char gender = 'M';
+		String madruga = gay
 
 		double price1 = 2100.0;
 		double price2 = 650.50;
@@ -47,5 +48,7 @@ public class NA_course {
 		System.out.printf("US decimal point: %.3f%n", measure);
 		Locale.setDefault(new Locale("pt", "BR"));
 		System.out.printf("BR decimal point: %.3f%n", measure);
+		System.out.println("");
+		System.out.println("oi" + madruga);
 	}
 }
