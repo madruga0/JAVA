@@ -4,6 +4,7 @@ public class NA_course {
 	public static void main(String[] args) {
 
 		// System.out.println("Hello world");
+		String preto = "blackout";
 		// int y = 32;
 		// System.out.println(y);
 		// double x = 10.35784;
