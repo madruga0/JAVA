@@ -524,4 +524,69 @@ public class NAlearn {
 - O nome do **parametro** **nao precisa ser igual** ao **nome da variavel do programa principal** 
 - Quando eu chamar a function, os valores dos parametros vao casar e se tornarao um so 
 
+# IPC
+	 > Quais são os benefícios de se calcular a area de um triangulo por meio de um MÉTODO dentro da CLASSE Triangle?
+	 1. Reaproveitamento de código: nós eliminamos o codigo repetido(calculo das areas dos triangulos x e y) no programa principal.
+	 2. Delegação de responsabilidade: quem deve ser responsavel por saber como calcular a area de um triangulo é p proprio triangulo. A logica do calculo da area nao deve estar em outro lugar.
+  
+## Codigos
+> class **Triangle** que contém o método
+```java
+package packages.entities;
+import java.util.Scanner;
 
+public class Triangle{
+  Scanner sc = new Scanner(System.in);
+
+  // atributos
+  public double a;
+  public double b;
+  public double c;
+
+  public double area() {
+      double p = (a + b + c) / 2.0;
+      double result = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+      return result;
+  }
+}
+```
+> public class Program
+```java
+import java.util.Locale;
+import java.util.Scanner;
+
+import packages.entities.Triangle;
+
+public class Program {
+  public static void main(String[] args) {
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
+    
+    Triangle x, y;
+    x = new Triangle();
+    y = new Triangle();
+
+    System.out.println("Enter the measures of triangle X: ");
+    x.a = sc.nextDouble();
+    x.b = sc.nextDouble();
+    x.c = sc.nextDouble();
+    System.out.println("Enter the measures of triangle Y: ");
+    y.a = sc.nextDouble();
+    y.b = sc.nextDouble();
+    y.c = sc.nextDouble();
+
+    double areaX = x.area();
+    double areaY = y.area();
+    
+    System.out.printf("Triangle X area: %.4f%n", areaX);
+    System.out.printf("Triangle Y area: %.4f%n", areaY);
+    
+    if (areaX > areaY) {
+      System.out.println("Larger area: X");
+    } else {
+      System.out.println("Larger area: Y");
+    }
+	}
+
+}
+```
