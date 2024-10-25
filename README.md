@@ -483,41 +483,49 @@ String original = "abcde FGHIJ ABC abc DEFG";
 # FUNCOES
 - **Functions** em **classe** recebem o nome de "**metodos**"
 ```java
-public class NAlearn {
+package test;
+
+import java.util.Scanner;
+
+public class Test {
 	public static void main(String[] args) {
-	
-	Scanner sc = new Scanner(System.in);
+	// My app default function -> my app entry point
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Enter three numbers: ");
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int c = sc.nextInt();
-
-		int higher = max(a,b,c);
-
+		
+		int higher = max(a, b, c);
+		
 		showResult(higher);
-
-
-
+		
 		sc.close();
 	}
-
-	public static int max(int x, int y, int z) {
-		int aux; // local variable
-		if(x > y && x > z) {
-			aux = x;
-		} else if(y > z) {
-			aux = y;
+	
+	public static int max(int a, int b, int c) {
+		int aux; // variavel local dessa funcao
+		if(a > b && a > c) {
+			aux = a;
+		} else if(b > c) {
+			aux = b;
 		} else {
-			aux = z;
+			aux = c;
 		}
+		
 		return aux;
 	}
-
+	// public -> para que essa funcao fique disponivel para outras classes
+	// static -> para que a funcao possa ser chamada independente de criar um objeto
+	// int -> o tipo de variavel que vai retornar a funcao
+	// max() -> o nome da funcao 
+	// int a, int b, int c -> sao os parametros funcao, que nao precisam ter o mesmo nome das variaveis do programa principal 
+	
 	public static void showResult(int value) {
-		System.out.println("Higher: " + value);
-		// lembrando: os parametros nao precisam ter o mesmo nome
+		System.out.println("Higher = " + value);
 	}
+	// void -> quando a funcao faz uma acao sem retornar um valor para ser reaproveitado no programa
 
 }
 ```
