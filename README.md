@@ -683,4 +683,149 @@ public class Estoque {
 
 }
 ```
+# Membros Estáticos
+
+- São membros que fazem sentido independentemente de objetos.
+- Não precisam de objetos para serem chamados.
+- São chamados a partis do próprio nome da classe.
+- Também são chamados membros de classe
+- Em oposição a membros de instância
+
+## CHECKLIST
+> We'll do a program that calculate a circumference's area of three distinct ways.
+### 1. *Primeira versão*: métodos na **própria classe do programa**
+```java
+public class Program {
+
+    public static final double PI = 3.14159;
+
+    public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter radius: ");
+        double radius = sc.nextDouble();
+
+        double c = circumference(radius);
+
+        double v = volume(radius);
+
+        System.out.printf("Circumference: %.2f%n", c);
+        System.out.printf("Volume: %.2f%n", v);
+        System.out.printf("PI: %.2f%n", PI);
+
+        sc.close();
+    }
+
+    // se eu tirar o STATIC das funções, o programa irá quebrar. Por quê?
+    // R. Não posso chamar um mét0do não-estático dentro de um mét0do estático
+
+    public static double circumference(double radius) {
+        return 2.0 * PI * radius;
+    }
+
+    public static double volume(double radius) {
+        return 4.0 * PI * radius * radius * radius / 3.0;
+    }
+
+}
+```
+
+### 2. *Segunda versão*: classe Calculator com **membros de instância**
+- ***Program.java***
+```java
+public class Program {
+
+    public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        // instanciei o objeto calc
+        Calculator calc = new Calculator();
+
+        System.out.print("Enter radius: ");
+        double radius = sc.nextDouble();
+
+        double c = calc.circumference(radius);
+
+        double v = calc.volume(radius);
+
+        System.out.printf("Circumference: %.2f%n", c);
+        System.out.printf("Volume: %.2f%n", v);
+        System.out.printf("PI: %.2f%n", calc.PI);
+
+        sc.close();
+    }
+}
+```
+- ***Calculator.java***
+```java
+public class Calculator {
+
+    // SEGUNDA MANEIRA
+    // chamei os métodos e classes através de um objeto
+
+    public final double PI = 3.14159;
+
+
+    public double circumference(double radius) {
+        return 2.0 * PI * radius;
+    }
+
+    public double volume(double radius) {
+        return 4.0 * PI * radius * radius * radius / 3.0;
+    }
+}
+```
+
+### 3. *Terceira versão*: classe Calculator com **método estático**
+> Tenho métodos estáticos e uma constante que também é estática, **permitindo
+utilizar esses métodos independente de qualquer objeto.**
+
+- ***Program.java***
+```java
+public class Program {
+
+    public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        // no programa principal, eu não preciso mais instanciar objeto algum, para depois chamar a operação a partir do objeto
+        System.out.print("Enter radius: ");
+        double radius = sc.nextDouble();
+
+        // agora posso chamar a própria classe
+        double c = Calculator.circumference(radius);
+
+        double v = Calculator.volume(radius);
+
+        System.out.printf("Circumference: %.2f%n", c);
+        System.out.printf("Volume: %.2f%n", v);
+        System.out.printf("PI: %.2f%n", Calculator.PI);
+
+        sc.close();
+    }
+}
+```
+- ***Calculator.java***
+```java
+public class Calculator {
+
+    // TERCEIRA MANEIRA
+
+    // o PI vai ser estático, será uma constante que independe de qualquer objeto do tipo Calculator
+    public static final double PI = 3.14159;
+
+    // pode ser calculada independente de objeto
+    public static double circumference(double radius) {
+        return 2.0 * PI * radius;
+    }
+
+    // pode ser calculada independente de objeto
+    public static double volume(double radius) {
+        return 4.0 * PI * radius * radius * radius / 3.0;
+    }
+}
+```
 
