@@ -598,3 +598,89 @@ public class Program {
 
 }
 ```
+## Codigo de uma classe Program
+> class **Product** que chama os métodos e os objetos
+
+ ```java
+package packages;
+
+import packages.JAVA.Estoque;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Product {
+   public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      Locale.setDefault(Locale.US);
+
+      // Constructed object called "stock"
+      Estoque stock = new Estoque();
+
+      // Set values to objects "name", "price", "quantity"
+      System.out.println("Enter product data");
+      System.out.print("Name: ");
+      stock.name = sc.nextLine();
+      System.out.print("Price: ");
+      stock.price = sc.nextDouble();
+      System.out.print("Quantity: ");
+      stock.quantity = sc.nextInt();
+
+      // Updated data with method "totalValueInStock" which return (price * quantity).
+      System.out.println("Product data: " + stock.name + ", $ " + stock.price + ", " + stock.quantity + " units , $ " + stock.totalValueInStock());
+
+      // Adding data to stock with method addProducts which receive parameter an integer value (this.quantity += quantity);
+      System.out.println("Enter the number of products to be added in stock: ");
+      // I declared the parameter "quantity"
+      int quantity = sc.nextInt();
+      stock.addProducts(quantity);
+      System.out.println("Updated data: " + stock);
+
+      // Removing data from stock with method removeProducts which receive parameter an integer value (this.quantity -= quantity);
+      System.out.println("Enter the number of products to be removed from stock: ");
+      quantity = sc.nextInt();
+      stock.removeProducts(quantity);
+
+      // Declaring the final updated data with the method which will format to String
+      System.out.println("Updated data: " + stock.toString());
+
+      sc.close();
+
+   }
+}
+```
+> class **Estoque** que contém os *métodos* e *objetos* 
+```java
+package packages;
+
+public class Estoque {
+    public String name;
+    public double price;
+    public int quantity;
+
+
+    public double totalValueInStock() {
+        return price * quantity;
+    }
+
+    public void addProducts(int quantity) {
+        this.quantity += quantity;
+    }
+
+    public void removeProducts(int quantity) {
+        this.quantity -= quantity;
+    }
+
+    public String toString() {
+        return name
+                + ", $ "
+                + String.format("%.2f", price)
+                + ", "
+                + quantity
+                + " units, Total: $ "
+                + String.format("%.2f", totalValueInStock());
+    }
+
+}
+```
+
