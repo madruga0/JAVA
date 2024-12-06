@@ -828,4 +828,347 @@ public class Calculator {
     }
 }
 ```
+# Construtores, palavra this, sobrecarga, encapsulamento
 
+## 1. Construtores
+- Operação especial da classe, executada no momento da instanciação do objeto
+- Usos comuns:
+  - iniciar valores dos atributos
+  - permitir ou obrigar que o objeto receba dados no momento de sua instanciação
+- **Se um construtor customizado não for especificado, a classe disponibiliza o construtor padrão**
+```java
+Product p = new Product();
+```
+- É possível especificar mais de um construtor na mesma classe(sobrecarga)
+
+### OBS: método **CONSTRUTOR**
+```java
+        // declarar um construtor
+public Product(String name, double price, int quantity) {
+  // this -> referenciando ao atributo do objeto
+  this.name = name;
+  this.price = price;
+  this.quantity = quantity;
+}
+```
+## 2. Palavra THIS
+- Serve para diferenciar o atributo do objeto e o parametro do construtor   
+- É uma referencia para o próprio objeto
+- Usos comuns:
+  - Diferenciar atributos de variáveis locais
+  - Passar o próprio objeto como argumento na chamada de um método ou construtor
+
+
+### Classe Program
+```java
+
+public class Program {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+
+        // eu declarei algumas variáveis (1, 2 e 3)
+        // instanciei o method constructor e passo os objetos como parametros do construtor (4)
+        System.out.println("Enter product data: ");
+
+        // 1.
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        // 2.
+        System.out.print("Price: ");
+        double price = sc.nextDouble();
+        // 3.
+        System.out.print("Quantity in stock: ");
+        int quantity = sc.nextInt();
+        // 4.
+        Product product = new Product(name, price, quantity);
+
+        System.out.println();
+        System.out.println("Product data: " + product);
+        System.out.println();
+
+        System.out.print("Enter the number of products to be added in stock: ");
+        quantity = sc.nextInt();
+        product.addProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        System.out.println();
+        System.out.print("Enter the number of products to be removed from stock: ");
+        quantity = sc.nextInt();
+        product.removeProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        sc.close();
+    }
+}
+
+```
+
+### Classe Product
+```java
+
+public class Product {
+    public String name;
+    public double price;
+    public int quantity;
+
+    // declarar um construtor
+    public Product(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        // this -> referenciando ao atributo do objeto
+        // this -> to acessando o name do objeto na linha 4
+        // this -> to acessando o price bo objeto na linha 5
+        // this -> to acessando a quantity bo objeto na linha 6
+    }
+
+    public double totalValueInStock() {
+        return price * quantity;
+    }
+
+    public void addProducts(int quantity) {
+        this.quantity += quantity;
+    }
+
+    public void removeProducts(int quantity) {
+        this.quantity -= quantity;
+    }
+
+    public String toString() {
+        return name
+                + ", $ "
+                + String.format("%.2f", price)
+                + ", "
+                + quantity
+                + " units, Total: $ "
+                + String.format("%.2f", totalValueInStock());
+    }
+}
+```
+
+## 3. Sobrecarga - disponibilizar mais de uma versão da mesma operação
+- Recurso que uma classe possui de **oferecer mais de uma operação com o mesmo nome, mas com diferentes listas de parâmetros**.
+> **Proposta de melhoria:** criar um construtor opcional, que recebe apenas nome e preço do produto. A quantidade em estoque deste novo produto deverá então ser iniciada com o valor 0(zero).
+
+### Classe Program
+```java
+public class Program {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.println("Enter product data: ");
+
+        // 1.
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        // 2.
+        System.out.print("Price: ");
+        double price = sc.nextDouble();
+        // 4.
+        Product product = new Product(name, price);
+
+        System.out.println();
+        System.out.println("Product data: " + product);
+        System.out.println();
+
+        System.out.print("Enter the number of products to be added in stock: ");
+        int quantity = sc.nextInt();
+        product.addProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        System.out.println();
+        System.out.print("Enter the number of products to be removed from stock: ");
+        quantity = sc.nextInt();
+        product.removeProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        sc.close();
+    }
+}
+```
+
+### Classe Product
+```java
+public class Product {
+    public String nome;
+    public double preco;
+    public int quantidade;
+
+    // declarar um construtor
+    public Product(String name, double price, int quantity) {
+        this.nome = name;
+        this.preco = price;
+        this.quantidade = quantity;
+        // this -> referenciando ao atributo do objeto
+        // this -> to acessando o name do objeto na linha 4
+        // this -> to acessando o price bo objeto na linha 5
+        // this -> to acessando a quantity bo objeto na linha 6
+    }
+
+        // declarar um construtor
+        public Product(String name, double price) {
+            this.nome = name;
+            this.preco = price;
+        }
+
+    public double totalValueInStock() {
+        return preco * quantidade;
+    }
+
+    public void addProducts(int quantity) {
+        this.quantidade += quantity;
+    }
+
+    public void removeProducts(int quantity) {
+        this.quantidade -= quantity;
+    }
+
+    public String toString() {
+        return nome
+                + ", $ "
+                + String.format("%.2f", preco)
+                + ", "
+                + quantidade
+                + " units, Total: $ "
+                + String.format("%.2f", totalValueInStock());
+    }
+}
+```
+## 4. Encapsulamento
+- Princípio que consiste em **esconder detalhes de implementação de uma classe, expondo apenas operações seguras**
+> **REGRA DE OURO:** ***o objetivo deve sempre estar em um estado consistente***, e a própria classe deve garantir isso.
+- Um objeto ***NÃO*** deve expor nenhum atributo (modificador de acesso ***private***)
+- Os atributos devem ser acessados por meio de métodos **get** e **set**
+  - Padrão [JavaBeans](https://en.wikipedia.org/wiki/JavaBeans)
+- Padrão para implementação de ***getters e setters***
+> **VSCODE**: Right buttom => Source Action => Generate Getters and Setters
+> Classe Product
+```java
+//  private -> NÃO podem ser acessados por outras classes
+package packages.Construtores_this_sobrecarga_encapsulamento;
+
+public class Product {
+    // só poderão ser acessados dentro da classe
+    private String nome;
+    private double preco;
+    private int quantidade;
+
+    // declarar um construtor
+    public Product(String name, double price, int quantity) {
+        this.nome = name;
+        this.preco = price;
+        this.quantidade = quantity;
+    }
+
+    // declarar um construtor
+    public Product(String name, double price) {
+        this.nome = name;
+        this.preco = price;
+    }
+
+    // Encapsulamento
+    public String getName() {
+        return nome;
+    }
+
+    public void setName(String name) {
+        this.nome = name;
+    }
+
+    public double getPrice() {
+        return preco;
+    }
+
+    public void setPrice(double price) {
+        this.preco = price;
+    }
+    //
+    
+    public double totalValueInStock() {
+        return preco * quantidade;
+    }
+
+    public void addProducts(int quantity) {
+        this.quantidade += quantity;
+    }
+
+    public void removeProducts(int quantity) {
+        this.quantidade -= quantity;
+    }
+
+    public String toString() {
+        return nome
+                + ", $ "
+                + String.format("%.2f", preco)
+                + ", "
+                + quantidade
+                + " units, Total: $ "
+                + String.format("%.2f", totalValueInStock());
+    }
+}
+
+```
+> Classe Program
+```java
+public class Program {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+
+        // eu declarei algumas variáveis (1, 2 e 3)
+        // instanciei o method constructor e passo os objetos como parametros do construtor (4)
+        System.out.println("Enter product data: ");
+
+        // 1.
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+        // 2.
+        System.out.print("Price: ");
+        double price = sc.nextDouble();
+        // 4.
+        Product product = new Product(name, price);
+
+        product.setName("Computer");
+        System.out.println("Updated name: " + product.getName());
+        product.setPrice(200.00);
+        System.out.println("Updated price: " + product.getPrice());
+
+        System.out.println();
+        System.out.println("Product data: " + product);
+        System.out.println();
+
+        System.out.print("Enter the number of products to be added in stock: ");
+        int quantity = sc.nextInt();
+        product.addProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        System.out.println();
+        System.out.print("Enter the number of products to be removed from stock: ");
+        quantity = sc.nextInt();
+        product.removeProducts(quantity);
+
+        System.out.println();
+        System.out.println("Updated data: " + product);
+        sc.close();
+    }
+
+}
+```
+
+## 5. Modificadores de acesso
+- **private**: o membro só pode ser acessado na própria classe
+- (nada): o membro só pode ser acessado nas classes do **mesmo pacote**
+- **protected**: o membro só pode ser acessado no **mesmo pacote**, bem como em **subclasses(entra o conceito de HERANÇA) de pacotes diferentes**
+- **public**: **o membro é acessado por todas classes**(ao menos que ele resida em um módulo diferente que não exporte o pacote onde ele está)
+> [Stackoverflow](https://stackoverflow.com/questions/215497/in-java-difference-between-package-private-public-protected-and-private)
+![example](<Screenshot From 2024-12-06 10-50-12.png>)
