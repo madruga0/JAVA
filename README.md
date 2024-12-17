@@ -1187,7 +1187,7 @@ public class Program {
 - variáveis do tipo **primitivo** são **CAIXAS** e não tentáculos
 - OBS: Y = X (Y ***recebe uma cópia*** de X).
 - Variáveis instanciadas no **STACK**
-![alt text](image-1.png) - y recebe uma cópia de x
+![alt text](Screenshot From 2024-12-16 11-15-58.png) - y recebe uma cópia de x
 - não é uma referência a algum objeto, diferente das variavéis do tipo **classe**
 
 
