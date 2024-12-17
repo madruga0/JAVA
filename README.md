@@ -1172,3 +1172,81 @@ public class Program {
 - **public**: **o membro é acessado por todas classes**(ao menos que ele resida em um módulo diferente que não exporte o pacote onde ele está)
 > [Stackoverflow](https://stackoverflow.com/questions/215497/in-java-difference-between-package-private-public-protected-and-private)
 ![example](<Screenshot From 2024-12-06 10-50-12.png>)
+> 
+
+## 6. Comportamento de memória, arrays, listas
+
+## Tipos referência vs. tipos valor
+### Tipos referência
+- variáveis do tipo **classe** não são caixas, e sim "tentáculos" para caixas
+- OBS: Y = X (Y ***passa a apontar*** para onde X aponta).
+- Variáveis instaciadas no **HEAP**
+![alt text](image.png) - p2 passa a apontar para o mesmo lugar que p1 está apontando
+----
+### Tipos valor
+- variáveis do tipo **primitivo** são **CAIXAS** e não tentáculos
+- OBS: Y = X (Y ***recebe uma cópia*** de X).
+- Variáveis instanciadas no **STACK**
+![alt text](image-1.png) - y recebe uma cópia de x
+- não é uma referência a algum objeto, diferente das variavéis do tipo **classe**
+
+
+
+## Desalocação de memória
+### Garbage collector e escopo local
+
+- **Garbage Collector** 
+    - cuida de alocar e liberar memória de forma dinâmica, sem precisar fazer isso manualmente
+        - **HEAP** - quando programas criam objetos ou alocam memórias durante a **execução**(geralmente, armazenados no **HEAP**)
+        - Exemplo: **criar** um **objeto** com **new** aloca memória no **HEAP**
+- **Um elemento sem referência será desalocado pelo garbage collector**
+
+----
+# Resumo para revisar:
+1.  **Primitivos**: Armazenados no **STACK**.
+2.  **Objetos** (tipo classe): A *referência* vai no *STACK*, mas o **objeto** em si é **alocado** no **HEAP**.
+```java
+int x = 10; // "x" e valor 10 no STACK.
+String texto = new String("Olá no HEAP"); // "texto" no STACK, objeto "Olá" no HEAP.
+```
+----
+
+## Vetores
+- Array é uma **estrutura de dados**
+    - **Homogênea** (dados do mesmo tipo)
+    - **Ordenada** (elementos acessados por meio de posição)
+    - **Alocada** de uma vez só 
+- Construindo um programa que vai ler 3 alturas, armazenar em um vetor, pegar esse vetor e fazer a média das alturas.
+```java
+package packages.ComportamentosDeMemoria_arrays_listas;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+        
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        // criei um novo vector que vai receber N indices eu quiser.
+        double[] vect = new double[n];
+        
+        for(int i = 0; i < n; i++) {
+            // aproveitando a variável do FOR para acessa o vetor
+            vect[i] = sc.nextDouble();
+        }
+
+        double sum = 0.0;
+        for (int i = 0; i < n; i++) {
+            sum += vect[i];
+        }
+
+        double avg = sum / n;
+        System.out.printf("AVERAGE HEIGHT: %.2f", avg);
+
+        sc.close();
+    }
+}
+
+```
