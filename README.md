@@ -1217,21 +1217,17 @@ String texto = new String("Olá no HEAP"); // "texto" no STACK, objeto "Olá" no
     - **Ordenada** (elementos acessados por meio de posição)
     - **Alocada** de uma vez só 
 - Construindo um programa que vai ler 3 alturas, armazenar em um vetor, pegar esse vetor e fazer a média das alturas.
+## Manipulando vetor do tipo valor(tipo primitivo)
 ```java
-package packages.ComportamentosDeMemoria_arrays_listas;
-
-import java.util.Locale;
-import java.util.Scanner;
-
 public class Test {
     public static void main(String[] args) {
-        
+
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         // criei um novo vector que vai receber N indices eu quiser.
         double[] vect = new double[n];
-        
+
         for(int i = 0; i < n; i++) {
             // aproveitando a variável do FOR para acessa o vetor
             vect[i] = sc.nextDouble();
@@ -1247,6 +1243,81 @@ public class Test {
 
         sc.close();
     }
+}
+
+```
+
+## Manipulando vetor do tipo referencie(classe)
+
+### Main class
+
+```java
+package packages.ComportamentosDeMemoria_arrays_listas;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        Product[] vect = new Product[n];
+
+        for(int i=0; i<vect.length; i++) {
+            // para consumir a quebra de linha primeiro
+            sc.nextLine();
+            String name = sc.nextLine();
+            double price = sc.nextDouble();
+            vect[i] = new Product(name, price);
+        }
+
+        double sum = 0.0;
+        for(int i = 0; i<vect.length; i++) {
+            sum += vect[i].getPrice();
+        }
+        double avg = sum / vect.length;
+
+        System.out.printf("AVERAGE PRICE = %.2f \n", avg);
+
+        sc.close();
+    }
+}
+
+```
+
+### Product class
+
+```java
+package packages.ComportamentosDeMemoria_arrays_listas;
+
+public class Product {
+    private String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
 }
 
 ```
