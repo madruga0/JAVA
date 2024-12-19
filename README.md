@@ -1181,13 +1181,13 @@ public class Program {
 - variáveis do tipo **classe** não são caixas, e sim "tentáculos" para caixas
 - OBS: Y = X (Y ***passa a apontar*** para onde X aponta).
 - Variáveis instaciadas no **HEAP**
-![alt text](Screenshot From 2024-12-16 11-09-19.png) - p2 passa a apontar para o mesmo lugar que p1 está apontando
+![alt text](<Screenshot From 2024-12-16 11-09-19.png>) - p2 passa a apontar para o mesmo lugar que p1 está apontando
 ----
 ### Tipos valor
 - variáveis do tipo **primitivo** são **CAIXAS** e não tentáculos
 - OBS: Y = X (Y ***recebe uma cópia*** de X).
 - Variáveis instanciadas no **STACK**
-![alt text](Screenshot From 2024-12-16 11-15-58.png) - y recebe uma cópia de x
+![alt text](<Screenshot From 2024-12-16 11-15-58.png>) - y recebe uma cópia de x
 - não é uma referência a algum objeto, diferente das variavéis do tipo **classe**
 
 
