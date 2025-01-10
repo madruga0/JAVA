@@ -1321,3 +1321,106 @@ public class Product {
 }
 
 ```
+
+## CODIGO PARA REFERENCIAR E TER COMO BASE
+
+```java
+ public class Alturas {
+    public static void main(String[] args) {
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Quantas pessoas serao digitadas? ");
+    int n = sc.nextInt();
+
+    String[] names = new String[n];
+    int[] idades = new int[n];
+    double[] alturas = new double[n];
+
+    int nMenores;
+    double alturaTotal, alturaMed, percentualMenores;
+
+    for (int i = 0; i < n; i++) {
+        System.out.printf("Dados da %da pessoa: \n", i + 1);
+        System.out.print("Nome: ");
+        names[i] = sc.next();
+        System.out.print("Idade: ");
+        idades[i] = sc.nextInt();
+        System.out.print("Altura: ");
+        alturas[i] = sc.nextDouble();
+    }
+
+    nMenores = 0;
+    alturaTotal = 0;
+    for (int i = 0; i < n; i++) {
+            if (idades[i] < 16) {
+                nMenores++;
+            }
+        alturaTotal = alturaTotal + alturas[i];
+    }
+
+    alturaMed = alturaTotal / n;
+    percentualMenores = ((double) nMenores / n) * 100.0;
+
+    System.out.printf("\nAltura media = %.2f\n", alturaMed);
+    System.out.printf("Pessoas com menos de 16 anos: %.1f%%\n",percentualMenores);
+
+    for (int i = 0; i < n; i++) {
+            if (idades[i] < 16) {
+                System.out.printf("%s\n", names[i]);
+            }
+    }
+
+    sc.close();
+    }
+  }
+```
+
+## CALCULO DE SOMA E MEDIA
+
+```java
+double sum = 0.0;
+ 
+ for (int i=0; i<arr.length; i++) {
+    sum += arr[i].getPrice();
+    }
+
+    double avg = sum / arr.length;
+    System.out.printf("AVERAGE PRICE = %.2f%n", avg);
+```
+
+## POSICAO NUMERO CRESCENTE
+
+```java
+for (int i = 0; i < n; i++) {
+System.out.printf("Dados da %da pessoa: \n", i + 1);
+System.out.print("Nome: ");
+names[i] = sc.next();
+System.out.print("Idade: ");
+idades[i] = sc.nextInt();
+System.out.print("Altura: ");
+alturas[i] = sc.nextDouble();
+}
+```
+
+## ARMAZENAR N NUMEROS EM UM VETOR
+
+```java
+int n = sc.nextInt();
+int[] arr = new int[n];
+```
+
+## PARA ITERAR ALGUMA COISA E CONTAR NO FINAL
+
+```java
+    int qtdPares = 0;
+    System.out.println( "\nNUMEROS PARES: " );
+        for ( var i = 0; i < arr.length; i++ ) {
+            if ( arr[i] % 2 == 0 ) {
+                System.out.printf( "%d  ", arr[i] );
+                qtdPares++;
+            }
+        }
+    System.out.printf("\n\nQUANTIDADE DE PARES = %d\n", qtdPares);
+
+```
